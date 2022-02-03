@@ -60,7 +60,7 @@ function viewRoles() {
     })
 }
 function viewEmployees() {
-    db.query("SELECT first_name AS `First Name`, last_name AS `Last Name`, role_id AS `Role Id` FROM employee, manager_id AS `Manager Id`", function (err, result) {
+    db.query("SELECT * FROM employee", function (err, result) {
         if (err) throw err;
         console.table(result);
         startUp();
@@ -83,7 +83,7 @@ function addRole() {
     inquirer.prompt([
         {
             name: "newRoleTitle",
-            message: "What is the role's name?",
+            message: "What is the title for this role?",
             type: "input"
         },
         {
@@ -171,9 +171,7 @@ function updateEmployee() {
             name: "roleUpdate",
             choices: roleArr,
         },
-    ])
-})
-}).then(function (update){
+    ]).then(function (update){
         const roleUpdate = update.roleUpdate;
         const employeeUpdate = update.employeeUpdate;
         db.query("UPDATE employee SET role_id=? WHERE id=?", [roleUpdate,employeeUpdate], function (err,result) {
@@ -182,7 +180,8 @@ function updateEmployee() {
             startUp(); 
         })
     })
-
+})
+})
 }
 
 startUp();

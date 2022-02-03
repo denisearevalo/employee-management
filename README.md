@@ -6,7 +6,7 @@ Installation:
 To install the Employee Managements System user will need to create a clone of this repository and open via VS. Upon opening the repository user will need to open the terminal to begin installation of necessary dependencies. User will need to run mysql to SOURCE the schema and seeds file. Once done enter exit to then prompt the app byt running node app.js
 
 Usage:
-User will follow to prompts to either view employees, role and departments along with being able to add a new employee role or department. 
+User will follow to prompts to either view employees, role and departments using the up and down arrows. The user will also be able to add a new department employee role or update an employee. 
 
 Plans:
 Delete functionality is planned to assist the manager in removing any roles, employees or departments no longer staffed.
