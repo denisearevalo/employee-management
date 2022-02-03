@@ -1,29 +1,33 @@
-DROP DATABASE IF EXISTS system_db;
-CREATE DATABASE system_db;
+DROP DATABASE IF EXISTS ems_db;
+CREATE DATABASE ems_db;
 
-USE system_db;
+USE ems_db;
 
 CREATE TABLE department (
-    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    dapartment_name VARCHAR(30) NOT NULL
+    id INT AUTO_INCREMENT,
+    department_name VARCHAR(30),
+    PRIMARY KEY(id)
 );
 
-CREATE TABLE role (
-    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    title VARCHAR(30) NOT NULL,
-    salary DECIMAL,
-    department_id INT NOT NULL
-    ON DELETE CASCADE
+CREATE TABLE roles (
+    id INT AUTO_INCREMENT,
+    title VARCHAR(30),
+    salary DECIMAL(10,2),
+    department_id INT,
+    FOREIGN KEY(department_id) REFERENCES department(id),
+    PRIMARY KEY(id)
 );
 
 CREATE TABLE employee (
-    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    first_name VARCHAR(30)NOT NULL,
-    last_name VARCHAR(30) NOT NULL,
-    role_id INT NOT NULL,
-    manager_id INT NOT NULL,
-    FOREIGN KEY (manager_id)
-    REFERENCES role(department_id)
-    ON DELETE CASCADE
+    id INT AUTO_INCREMENT,
+    first_name VARCHAR(30),
+    last_name VARCHAR(30),
+    role_id INT,
+    manager_id INT,
+    FOREIGN KEY(role_id) REFERENCES roles(id)
+    ON DELETE SET NULL,
+    FOREIGN KEY(manager_id) REFERENCES employee(id)
+    ON DELETE SET NULL,
+    PRIMARY KEY(id)
 );
 

@@ -1,0 +1,25 @@
+{
+  "name": "employee-management",
+  "version": "1.0.0",
+  "description": "Description:\r This app is designed to aid a business owner in managing and viewing their employee, departments, and roles. This can help in month end efficiency and organization.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/denisearevalo/employee-management.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/denisearevalo/employee-management/issues"
+  },
+  "homepage": "https://github.com/denisearevalo/employee-management#readme",
+  "dependencies": {
+    "dotenv": "^15.0.1",
+    "inquirer": "^8.2.0",
+    "mysql2": "^2.3.3"
+  },
+  "keywords": []
+}

@@ -1,4 +1,5 @@
 const mysql = require('mysql2');
+require('dotenv').config();
 
 const db = mysql.createConnection({
         host: 'localhost',
@@ -6,7 +7,7 @@ const db = mysql.createConnection({
         // MySQL username,
         user: 'root',
         password: process.env.MYSQL_PASSWORD,
-        database: 'system_db'
+        database: 'ems_db'
     },
     console.log(`Connected to the system_db database.`)
 );
